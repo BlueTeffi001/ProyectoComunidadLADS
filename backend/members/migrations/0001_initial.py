@@ -15,16 +15,65 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='MemberProfile',
+            name="MemberProfile",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('main_li', models.CharField(choices=[('xavier', 'Xavier'), ('sylus', 'Sylus'), ('zayne', 'Zayne'), ('rafayel', 'Rafayel'), ('caleb', 'Caleb')], max_length=20)),
-                ('birthday', models.DateField(blank=True, null=True)),
-                ('bio', models.TextField(blank=True)),
-                ('status', models.CharField(choices=[('pending', 'Pendiente'), ('approved', 'Aprobado'), ('rejected', 'Rechazado')], default='pending', max_length=20)),
-                ('role', models.CharField(choices=[('member', 'Miembro'), ('moderator', 'Moderador'), ('editor', 'Editor'), ('admin', 'Admin')], default='member', max_length=20)),
-                ('can_edit_profile', models.BooleanField(default=True)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "main_li",
+                    models.CharField(
+                        choices=[
+                            ("xavier", "Xavier"),
+                            ("sylus", "Sylus"),
+                            ("zayne", "Zayne"),
+                            ("rafayel", "Rafayel"),
+                            ("caleb", "Caleb"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("birthday", models.DateField(blank=True, null=True)),
+                ("bio", models.TextField(blank=True)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("pending", "Pendiente"),
+                            ("approved", "Aprobado"),
+                            ("rejected", "Rechazado"),
+                        ],
+                        default="pending",
+                        max_length=20,
+                    ),
+                ),
+                (
+                    "role",
+                    models.CharField(
+                        choices=[
+                            ("member", "Miembro"),
+                            ("moderator", "Moderador"),
+                            ("editor", "Editor"),
+                            ("admin", "Admin"),
+                        ],
+                        default="member",
+                        max_length=20,
+                    ),
+                ),
+                ("can_edit_profile", models.BooleanField(default=True)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

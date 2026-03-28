@@ -6,13 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('members', '0001_initial'),
+        ("members", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='memberprofile',
-            name='main_li',
-            field=models.CharField(choices=[('xavier', 'Xavier'), ('sylus', 'Sylus'), ('zayne', 'Zayne'), ('rafayel', 'Rafayel'), ('caleb', 'Caleb')], default='xavier', max_length=20),
+            model_name="memberprofile",
+            name="main_li",
+            field=models.CharField(
+                choices=[
+                    ("xavier", "Xavier"),
+                    ("sylus", "Sylus"),
+                    ("zayne", "Zayne"),
+                    ("rafayel", "Rafayel"),
+                    ("caleb", "Caleb"),
+                ],
+                default="xavier",
+                max_length=20,
+            ),
         ),
     ]

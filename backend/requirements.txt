@@ -3,3 +3,6 @@ wagtail==7.3rc1
 psycopg[binary]
 gunicorn>=23.0.0
 django-environ
+black
+ruff
+django-cors-headers

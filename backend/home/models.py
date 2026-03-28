@@ -1,8 +1,8 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.shortcuts import redirect, render
-from django.contrib.auth.models import User
-from wagtail.models import Page
 from wagtail.admin.panels import FieldPanel
+from wagtail.models import Page
 
 
 class HomePage(Page):
@@ -25,7 +25,9 @@ class HomePage(Page):
 
 
 class Comment(models.Model):
-    page = models.ForeignKey(HomePage, on_delete=models.CASCADE, related_name="comments")
+    page = models.ForeignKey(
+        HomePage, on_delete=models.CASCADE, related_name="comments"
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

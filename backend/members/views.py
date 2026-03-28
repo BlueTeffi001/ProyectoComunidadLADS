@@ -1,11 +1,14 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-@login_required
-def profile_view(request):
-    profile = request.user.memberprofile
+from .models import MemberProfile
+from .serializers import MemberProfileSerializer
 
-    if profile.status != "approved":
-        return render(request, "members/not_approved.html")
 
-    return render(request, "members/profile.html")
+@api_view(["GET"])
+def members_list(request):
+    members = MemberProfile.objects.select_related("user").filter(status="approved")
+    serializer = MemberProfileSerializer(members, many=True)
+    return Response(serializer.data)
+
+
